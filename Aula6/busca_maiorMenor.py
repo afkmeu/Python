@@ -3,15 +3,6 @@ cab = '_'*50
 #SubProgramas
 
 #Preenche os dados a serem buscados
-def preencher(valores):
-    print(f'Recebendo {len(valores)} valores ...')
-    for i in range(len(valores)):
-        print(cab)
-        valores[i] = input("Digite um valor inteiro: \n")
-        print(f'O valor {valores[i]} foi adicionado \n Restam {len(valores)-1 - i} valores a serem adicionados')
-    print(f'A lista foi preenchida da seguinte forma: \n {valores} \n {rod}')
-    return None
-
 def maiorMenor(valores):
     menor = valores[0]
     maior = valores[0]
@@ -21,6 +12,17 @@ def maiorMenor(valores):
         elif maior < valores[i]:
             maior = valores[i]
     return [maior,menor]
+
+def preencher(valores):
+    print(f'Recebendo {len(valores)} valores ...')
+    for i in range(len(valores)):
+        print(cab)
+        valores[i] = input("Digite um valor inteiro: \n")
+        print(f'O valor {valores[i]} foi adicionado \n Restam {len(valores)-1 - i} valores a serem adicionados')
+    print(f'A lista foi preenchida da seguinte forma: \n {valores}\n {rod}')
+    return None
+
+
 
 #Busca na lista com os dados um elemento da lista definido pelo usuário
 def buscaElemento(valores,procurado):
@@ -40,7 +42,8 @@ print('programa de busca simples')
 print(rod)
 numeros=[0]*10
 preencher(numeros)
-
+maxMin = maiorMenor(numeros)
+print(f'O menor valor é {maxMin[1]} e o menor é {maxMin[0]}')
 dado = input("Digite o elemento a ser procurado \n")
 onde = buscaElemento(numeros,dado)
 escreveResposta(dado, onde)

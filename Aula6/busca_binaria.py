@@ -12,23 +12,23 @@ def preencher(valores):
     print(f'A lista foi preenchida da seguinte forma: \n {valores} \n {rod}')
     return None
 
-def maiorMenor(valores):
-    menor = valores[0]
-    maior = valores[0]
-    for i in range(1,len(valores)):
-        if menor > valores[i]:
-            menor = valores[i]
-        elif maior < valores[i]:
-            maior = valores[i]
-    return [maior,menor]
-
 #Busca na lista com os dados um elemento da lista definido pelo usuário
 def buscaElemento(valores,procurado):
-    local = -1
-    for i in range(len(valores)):
-        if valores[i] == procurado:
-            local = i
+    inicio = 0
+    fim = len(valores)-1
+    meio = (inicio + fim)//2
+    while(inicio < fim) and (procurado != valores[meio]):
+        if procurado > valores[meio]:
+            inicio = meio +1
+        else:
+            fim = meio - 1
+        meio = (inicio + fim)//2
+    if procurado != valores[meio]:
+        local = -1
+    else:
+        local = meio
     return local
+
 def escreveResposta(dado,pos):
     print(f'{cab} \n Resultado para a busca: \n Elemento {dado} encontrado na posição {pos} \n {rod}')
      
